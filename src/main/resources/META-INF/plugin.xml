@@ -1,0 +1,31 @@
+<idea-plugin>
+    <id>org.example.PluginHelloWorld</id>
+    <name>时间戳ShowTimeUtil</name>
+    <vendor email="xihuanjianguo@gmail.com" url="https://github.com/fatpo">Ouyang Bro</vendor>
+
+    <description><![CDATA[
+    <p>查看当前时间戳的工具互相转换 util.</p><br>
+    <p>时间戳和时间字符串互相转换的 util.</p><br>
+    <p>欢迎评论留言，提供意见和建议.</p><br>
+
+    <br>
+    <img src="/images/readme1.png"  width="500"  height="328" alt="201212111646332278"/>
+
+    <p><img src="./readme1.png" alt="readme图片1"></p>
+    <p><img src="./readme2.png" alt="readme图片2"></p>
+
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <toolWindow id="ShowTimeUtil" anchor="right" factoryClass="org.example.extension.TimeUtilExtensionWindow"/>
+    </extensions>
+
+    <actions>
+
+    </actions>
+</idea-plugin>

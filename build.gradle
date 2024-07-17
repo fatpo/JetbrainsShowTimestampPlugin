@@ -1,0 +1,30 @@
+plugins {
+    id 'org.jetbrains.intellij' version '1.5.3'
+    id 'java'
+}
+
+group 'org.fatpo'
+// 我们开发的插件当前版本，可自定义
+version '1.0'
+
+// 仓库配置，可根据网络环境切换仓库源
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'com.alibaba', name: 'fastjson', version: '2.0.4'
+}
+
+// 启动插件项目时，使用的模拟运行插件的 IDE 版本
+intellij {
+    version = '2021.2'
+}
+
+// 此处是插件的迭代版本介绍，非必要，若你生成的 build.gradle 文件包含此内容，删除此处内容。
+patchPluginXml {
+    changeNotes = """
+        <p>1. 2024年07月16日15:41:28 增加获取当前时间戳的工具</p><br>
+        <p>2. 2024年07月17日15:41:29 增加时间戳&时间字符串互相转换的工具</p><br>
+     """
+}

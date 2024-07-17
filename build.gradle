@@ -5,7 +5,7 @@ plugins {
 
 group 'org.fatpo'
 // 我们开发的插件当前版本，可自定义
-version '1.2'
+version '1.0'
 
 // 仓库配置，可根据网络环境切换仓库源
 repositories {

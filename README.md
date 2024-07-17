@@ -14,7 +14,8 @@
 
 ### Screenshots
 
-![Screenshot 1](https://raw.githubusercontent.com/fatpo/JetbrainsShowTimestampPlugin/main/src/main/resources/images/readme1.png)
+<img src="https://raw.githubusercontent.com/fatpo/JetbrainsShowTimestampPlugin/main/src/main/resources/images/readme1.png" alt="Screenshot 1" style="max-width: 300px; height: auto;">
+
 *Screenshot 1: Plugin interface showing timestamp conversion.*
 
 ![Screenshot 2](https://raw.githubusercontent.com/fatpo/JetbrainsShowTimestampPlugin/main/src/main/resources/images/readme2.png)
@@ -57,7 +58,8 @@ We welcome comments and suggestions.
 
 ### 截图
 
-![截图 1](https://raw.githubusercontent.com/fatpo/JetbrainsShowTimestampPlugin/main/src/main/resources/images/readme1.png)
+<img src="https://raw.githubusercontent.com/fatpo/JetbrainsShowTimestampPlugin/main/src/main/resources/images/readme1.png" alt="Screenshot 1" style="max-width: 300px; height: auto;">
+
 *截图 1：插件界面展示时间戳转换功能。*
 
 ![截图 2](https://raw.githubusercontent.com/fatpo/JetbrainsShowTimestampPlugin/main/src/main/resources/images/readme2.png)

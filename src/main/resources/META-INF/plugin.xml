@@ -4,16 +4,36 @@
     <vendor email="xihuanjianguo@gmail.com" url="https://github.com/fatpo">Ouyang Bro</vendor>
 
     <description><![CDATA[
-    <p>查看当前时间戳的工具互相转换 util.</p><br>
-    <p>时间戳和时间字符串互相转换的 util.</p><br>
-    <p>欢迎评论留言，提供意见和建议.</p><br>
+    <p><strong>Timestamp and Date String Conversion Utility.</strong></p>
+    <p>The plugin offers the following features:</p>
+    <ul>
+        <li>View current timestamp and convert to various formats.</li>
+        <li>Mutual conversion between timestamps and date strings.</li>
+        <li>Supports both local time and UTC time.</li>
+    </ul>
+    <p>We welcome comments and suggestions.</p>
 
     <br>
-    <img src="/images/readme1.png"  width="500"  height="328" alt="201212111646332278"/>
+    <hr>
+    <br>
 
-    <p><img src="./readme1.png" alt="readme图片1"></p>
-    <p><img src="./readme2.png" alt="readme图片2"></p>
+    <p><strong>查看当前时间戳 & 时间戳字符串互相转换的工具</strong></p>
+    <p>该插件提供以下功能：</p>
+    <ul>
+        <li>查看当前时间戳并转换为各种格式。</li>
+        <li>时间戳和时间字符串的相互转换。</li>
+        <li>支持本地时间和 UTC 时间。</li>
+    </ul>
+    <p>欢迎评论留言，提供意见和建议。</p>
 
+    <br>
+    <p>
+    <img src="https://raw.githubusercontent.com/fatpo/JetbrainsShowTimestampPlugin/main/src/main/resources/images/readme1.png" width="400" height="500" alt="readme1"/>
+    </p>
+
+    <p>
+    <img src="https://raw.githubusercontent.com/fatpo/JetbrainsShowTimestampPlugin/main/src/main/resources/images/readme2.png" width="700" height="500" alt="readme2"/>
+    </p>
     ]]></description>
 
     <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html

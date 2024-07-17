@@ -8,12 +8,8 @@ import com.intellij.ui.content.ContentFactory;
 import org.example.ui.TimeUtilWindow;
 import org.jetbrains.annotations.NotNull;
 
-import javax.swing.*;
-
 
 public class TimeUtilExtensionWindow implements ToolWindowFactory {
-
-    private static JPanel panel;
 
     @Override
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {

@@ -15,10 +15,10 @@ public class TimeUtilWindow extends JPanel {
     private final JTextField textField10;
     private final JTextField textField13;
     private final JTextField textField16;
-    private final JTextField timeStampField;
+    private final JTextField timestampField10ToStr;
+    private final JTextField stringToTimestampField;
     private final JTextField beijingTimeField;
     private final JTextField utcTimeField;
-
 
     public TimeUtilWindow() {
         // 使用GridBagLayout
@@ -79,51 +79,65 @@ public class TimeUtilWindow extends JPanel {
         gbc.gridwidth = 1;
         gbc.fill = GridBagConstraints.NONE;
 
-        // 创建转换功能组件
-        JLabel timeStampLabel = new JLabel("10位时间戳（秒）:");
-        timeStampField = new JTextField(15);
+        // 创建10位时间戳转字符串组件
+        JLabel timestampLabel10ToStr = new JLabel("10位时间戳（秒）:");
+        timestampField10ToStr = new JTextField(15);
+        JButton convertToStringButton = new JButton("时间戳转字符串");
+
+        // 创建字符串转10位时间戳组件
+        JLabel stringToTimestampLabel = new JLabel("时间字符串:");
+        stringToTimestampField = new JTextField(15);
+        JButton convertToTimeStampButton = new JButton("字符串转时间戳");
+
+        // 添加10位时间戳转字符串组件到面板
+        gbc.gridx = 0;
+        gbc.gridy = 5;
+        add(timestampLabel10ToStr, gbc);
+
+        gbc.gridx = 1;
+        add(timestampField10ToStr, gbc);
+
+        gbc.gridx = 2;
+        add(convertToStringButton, gbc);
+
+        // 添加字符串转10位时间戳组件到面板
+        gbc.gridx = 0;
+        gbc.gridy = 6;
+        add(stringToTimestampLabel, gbc);
+
+        gbc.gridx = 1;
+        add(stringToTimestampField, gbc);
+
+        gbc.gridx = 2;
+        add(convertToTimeStampButton, gbc);
+
+        // 创建结果显示组件
         JLabel beijingTimeLabel = new JLabel("北京时间:");
         beijingTimeField = new JTextField(15);
         JLabel utcTimeLabel = new JLabel("UTC时间:");
         utcTimeField = new JTextField(15);
-        JButton convertToStringButton = new JButton("时间戳转字符串");
-        JButton convertToTimeStampButton = new JButton("字符串转时间戳");
 
-        // 添加转换功能组件到面板
+        // 添加结果显示组件到面板
         gbc.gridx = 0;
-        gbc.gridy = 5;
-        add(timeStampLabel, gbc);
-
-        gbc.gridx = 1;
-        add(timeStampField, gbc);
-
-        gbc.gridx = 0;
-        gbc.gridy = 6;
+        gbc.gridy = 7;
         add(beijingTimeLabel, gbc);
 
         gbc.gridx = 1;
         add(beijingTimeField, gbc);
 
         gbc.gridx = 0;
-        gbc.gridy = 7;
+        gbc.gridy = 8;
         add(utcTimeLabel, gbc);
 
         gbc.gridx = 1;
         add(utcTimeField, gbc);
 
-        gbc.gridx = 0;
-        gbc.gridy = 8;
-        add(convertToStringButton, gbc);
-
-        gbc.gridx = 1;
-        add(convertToTimeStampButton, gbc);
-
         // 设置按钮的点击事件
         refreshButton.addActionListener(e -> refreshTimeStamps());
 
-        convertToStringButton.addActionListener(e -> convertTimeStampToString());
+        convertToStringButton.addActionListener(e -> convertTimestampToString());
 
-        convertToTimeStampButton.addActionListener(e -> convertStringToTimeStamp());
+        convertToTimeStampButton.addActionListener(e -> convertStringToTimestamp());
 
         // 初始化时间戳
         refreshTimeStamps();
@@ -148,7 +162,7 @@ public class TimeUtilWindow extends JPanel {
         textField16.setText(timeStamp16);
 
         Pair<String, String> timeStr = getTimeStr(timeStamp10);
-        timeStampField.setText(timeStamp10);
+        timestampField10ToStr.setText(timeStamp10);
         beijingTimeField.setText(timeStr.getFirst());
         utcTimeField.setText(timeStr.getSecond());
     }
@@ -165,9 +179,9 @@ public class TimeUtilWindow extends JPanel {
         return new Pair<>(beijingTimeStr, utcTimeStr);
     }
 
-    private void convertTimeStampToString() {
+    private void convertTimestampToString() {
         try {
-            long timeStamp = Long.parseLong(timeStampField.getText().trim());
+            long timeStamp = Long.parseLong(timestampField10ToStr.getText().trim());
             Instant instant = Instant.ofEpochSecond(timeStamp);
             LocalDateTime beijingTime = LocalDateTime.ofInstant(instant, ZoneId.of("Asia/Shanghai"));
             String utcTime = DateTimeFormatter.ISO_INSTANT.format(instant);
@@ -180,12 +194,12 @@ public class TimeUtilWindow extends JPanel {
         }
     }
 
-    private void convertStringToTimeStamp() {
+    private void convertStringToTimestamp() {
         try {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-            LocalDateTime beijingTime = LocalDateTime.parse(beijingTimeField.getText().trim(), formatter);
+            LocalDateTime beijingTime = LocalDateTime.parse(stringToTimestampField.getText().trim(), formatter);
             Instant instant = beijingTime.atZone(ZoneId.of("Asia/Shanghai")).toInstant();
-            timeStampField.setText(String.valueOf(instant.getEpochSecond()));
+            timestampField10ToStr.setText(String.valueOf(instant.getEpochSecond()));
 
             // 同步 UTC 时间
             LocalDateTime utcTime = beijingTime.atZone(ZoneId.of("Asia/Shanghai")).withZoneSameInstant(ZoneId.of("UTC")).toLocalDateTime();

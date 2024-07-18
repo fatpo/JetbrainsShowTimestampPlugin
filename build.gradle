@@ -1,5 +1,5 @@
 plugins {
-    id 'org.jetbrains.intellij' version '1.5.3'
+    id 'org.jetbrains.intellij' version '1.12.0'
     id 'java'
 }
 
@@ -13,7 +13,6 @@ repositories {
 }
 
 dependencies {
-    implementation group: 'com.alibaba', name: 'fastjson', version: '2.0.4'
 }
 
 // 启动插件项目时，使用的模拟运行插件的 IDE 版本
